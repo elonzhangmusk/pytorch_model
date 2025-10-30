@@ -1,0 +1,12 @@
+# 忽略 Python 缓存文件夹
+__pycache__/
+*/__pycache__/
+
+# 忽略数据、检查点、运行日志等
+data/
+checkpoint/
+runs/
+
+# 忽略自定义目录
+left-eye/
+left-eye/
