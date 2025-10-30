@@ -2,8 +2,7 @@
 ## 10.27 提交
 总体上完成了对googlenet的训练，下一步就是阅读相关代码，完成freeze（lora）微调。
 
-### 改动如下：
-#### 新增
+### 新增
 inference_flask.py  
 作为flask后端，方便在前端查看。
 
@@ -34,3 +33,5 @@ checkpoint/googlenet/Monday_27_October_2025_11h_56m_21s/googlenet-100-regular.pt
 ✅ Training started. You can visualize with TensorBoard:  
 ```tensorboard --logdir=runs --port=6006 --host=localhost```
 
+## 10.30 修改
+对googlenet代码调试
