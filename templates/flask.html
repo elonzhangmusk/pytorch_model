@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoogleNet Image Classification</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        input, button { margin: 10px 0; }
+        #result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>GoogleNet Image Classification</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="uploadImage()">预测</button>
+    <div id="result"></div>
+
+    <script>
+        function uploadImage() {
+            const input = document.getElementById('imageInput');
+            if (input.files.length === 0) {
+                alert('请选择图片！');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image', input.files[0]);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.prediction) {
+                    document.getElementById('result').innerText = '预测类别: ' + data.prediction;
+                } else {
+                    document.getElementById('result').innerText = '出错: ' + JSON.stringify(data);
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                document.getElementById('result').innerText = '请求失败';
+            });
+        }
+    </script>
+</body>
+</html>
