@@ -35,3 +35,4 @@ checkpoint/googlenet/Monday_27_October_2025_11h_56m_21s/googlenet-100-regular.pt
 
 ## 10.30 修改
 对googlenet代码调试
+同时对相关参数修改

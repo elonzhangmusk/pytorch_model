@@ -104,7 +104,7 @@ class BottleNeck(nn.Module):
 
 class ResNet(nn.Module):
 
-    def __init__(self, block, num_block, num_classes=100):
+    def __init__(self, block, num_block, num_classes=2):
         super().__init__()
 
         self.in_channels = 64
@@ -169,7 +169,7 @@ def resnet18():
     model_dict.update(pretrained_dict)
     model.load_state_dict(model_dict)
     in_features = model.fc.in_features  # 获取fc输入特征数
-    model.fc = nn.Linear(in_features, 100)
+    model.fc = nn.Linear(in_features, 2)
     print('First conv layer weight shape:', model.conv1[0].weight.shape)
     return model
 
